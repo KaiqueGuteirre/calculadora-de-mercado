@@ -1,0 +1,113 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+.box{
+    display: flex;
+    margin: 0;
+    padding: 3px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+      flex-direction: column;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    background-color: cadetblue;
+    border-radius: 15px;
+     border: 1px solid rgb(7, 7, 17);
+  box-shadow: 0 0 10px rgb(14, 14, 46),
+              0 0 20px rgb(12, 12, 31),
+              0 0 40px #0ff,
+              0 0 80px #0ff;
+              margin-top: 70px;
+
+  }
+
+  .check{
+    transform: scale(2); 
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+  }
+
+  .valueProduct{
+    width: 70px;
+    border-radius: 5px;
+    border: none;
+  }
+
+  .nameProduct{
+    width: 160px;
+  }
+
+  .boxProduct{
+    padding: 3px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    
+  }
+
+  .boxBt{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .boxTotal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    color: aliceblue;
+  }
+
+  label{
+    color: aliceblue;
+  }
+
+  .check{
+    transform: scale(2); 
+  margin: 10px;
+  }
+
+  button{
+    padding: 8px;
+    background-color: rgb(170, 247, 134);
+    border: none;
+    border-radius: 10px;
+  }
+  
+  p{
+    font-size: 20px;
+  }
+
+  .bts{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 180px;
+  }
+  
+  h4{
+    width: 25vw;
+  }
+
+  @media (max-width: 768px) {
+
+    h4{
+    width: 85vw;
+  }
+  
+  }
+  

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de compras</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+
+    <div class="box">
+
+
+        <h2>Calculadora de Compras Dinâmicas</h2>
+        <h4>Este sistema permite ao usuário calcular facilmente o total de uma lista de compras de forma dinâmica e
+            intuitiva. Com apenas alguns cliques, é possível adicionar múltiplos produtos, informar seus respectivos
+            valores e obter instantaneamente o total</h4>
+
+        <div class="container">
+            <div class="boxBuy">
+                <div class="boxProduct">
+                    <input class="check" type="checkbox">
+                    <label>Produto:</label>
+                    <input class="nameProduct" type="text" placeholder="Nome do produto">
+
+                    <div class="boxValue">
+                        <label> Preço:</label>
+                        <input class="valueProduct" type="text" placeholder="R$ 00,00">
+                    </div>
+                </div>
+
+                <div class="extraProduct"></div>
+
+                <div class="bts">
+                    <button onclick="addProduct()">Adicionar Produto</button>
+                    <button id="BT-Balance">Somar</button>
+
+                </div>
+
+
+                <div class="boxTotal">
+                    <label>Total:</label>
+                    <p class="TotalValue">R$ 00,00</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        // Adiciona nova linha de produto
+        function addProduct() {
+            const boxOriginal = document.querySelector('.boxProduct');
+            const clone = boxOriginal.cloneNode(true);
+
+            // Limpa os campos
+            const inputs = clone.querySelectorAll('input');
+            inputs.forEach(input => {
+                if (input.type === 'checkbox') input.checked = false;
+                else input.value = '';
+            });
+
+            document.querySelector('.extraProduct').appendChild(clone);
+        }
+
+        // Soma os valores
+        document.getElementById('BT-Balance').addEventListener('click', function () {
+            const inputs = document.querySelectorAll('.valueProduct');
+            let total = 0;
+
+            inputs.forEach(input => {
+                let valor = input.value
+                    .replace('R$', '')
+                    .replace(/\s/g, '')
+                    .replace(/\./g, '')
+                    .replace(',', '.');
+
+                const numero = parseFloat(valor);
+
+                if (!isNaN(numero)) {
+                    total += numero;
+                }
+            });
+
+            // Exibe o total formatado
+            const totalDisplay = document.querySelector('.TotalValue');
+            totalDisplay.textContent = total.toLocaleString('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+            });
+        });
+    </script>
+
+</body>
+
+</html>
